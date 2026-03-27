@@ -7,8 +7,8 @@ export const siteConfig = {
 	location: "Los Angeles County, CA",
 	/** Hero intro (two paragraphs). */
 	introParagraphs: [
-		"I grew up in El Monte and got my start in Parks and Recreation at 18—so I’ve been around city work for a while. Since then, I’ve picked up experience in banking and found my way back into local government, continuing to build my skills along the way. I enjoy being part of work that actually supports the community and like knowing the details I handle help things run a little smoother.",
-		"Day to day, I try to stay reliable, keep things moving, and be someone my team can count on. Outside of work, I’m usually building web apps or teaching myself how to code—part curiosity, part “there has to be a better way to do this.”",
+		"I grew up in El Monte and got my start in Parks and Recreation at 18, which gave me an early connection to public service. Since then, I’ve built experience in banking and have continued developing my skills in local government. I value being part of work that supports the community and take pride in delivering reliable, consistent results.",
+		"Day to day, I focus on staying dependable, keeping things moving, and contributing where I can to support the team. Outside of work, I enjoy building web applications and have been developing my programming skills through self-study.",
 	],
 	headshotSrc: "/headshot.jpg",
 	headshotAlt:
