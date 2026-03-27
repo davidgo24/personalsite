@@ -20,7 +20,7 @@ npm run preview
 
 | What | Where |
 |------|--------|
-| Name, headline, tagline, GitHub, quote | `src/site.config.ts` |
+| Name, headline, intro copy, GitHub, quote | `src/site.config.ts` (`introParagraphs`) |
 | Experience cards | `src/data/experience.ts` |
 | Project cards, images, repo URLs | `src/data/projects.ts` |
 | Headshot | Replace `public/headshot.svg` with your photo (e.g. `headshot.webp`) and update `headshotSrc` |

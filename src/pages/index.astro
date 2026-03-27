@@ -10,7 +10,7 @@ import SiteFooter from "../components/SiteFooter.astro";
 import { siteConfig } from "../site.config";
 
 const title = `${siteConfig.fullName} — ${siteConfig.headline}`;
-const description = siteConfig.tagline;
+const description = siteConfig.introParagraphs.join(" ");
 ---
 
 <Layout {title} {description}>

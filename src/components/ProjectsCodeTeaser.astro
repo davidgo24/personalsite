@@ -1,16 +1,10 @@
 ---
 import { publicUrl } from "../utils/publicUrl";
-/**
- * Decorative fake-editor strip before the projects section.
- */
 ---
 
 <section class="relative border-b border-border/80 bg-surface-muted/25">
 	<div class="mx-auto max-w-6xl px-4 py-10 md:py-12">
-		<p class="text-center text-sm font-medium text-muted">
-			This isn’t real code—it’s only here to set the mood before the project stories below.
-		</p>
-		<div class="mt-4 overflow-hidden rounded-xl border border-border bg-[#1e1e1e] shadow-md shadow-stone-300/35">
+		<div class="overflow-hidden rounded-xl border border-border bg-[#1e1e1e] shadow-md shadow-stone-300/35">
 			<img
 				src={publicUrl("/code-editor-teaser.svg")}
 				width="960"
@@ -22,8 +16,5 @@ import { publicUrl } from "../utils/publicUrl";
 				role="presentation"
 			/>
 		</div>
-		<p class="mt-3 text-center text-xs text-muted/90">
-			The picture is decoration. For each project, read the summary; if there’s a public GitHub link, use the screenshot or the “View on GitHub” button.
-		</p>
 	</div>
 </section>
