@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from "../site.config";
+import { publicUrl } from "../utils/publicUrl";
 ---
 
 <section
@@ -53,7 +54,7 @@ import { siteConfig } from "../site.config";
 				>
 					<div class="aspect-[3/5] w-full">
 						<img
-							src={siteConfig.headshotSrc}
+							src={publicUrl(siteConfig.headshotSrc)}
 							alt={siteConfig.headshotAlt}
 							width="450"
 							height="750"

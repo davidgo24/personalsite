@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from "../site.config";
+import { publicUrl } from "../utils/publicUrl";
 
 const phoneDigits = siteConfig.phone?.replace(/\D/g, "") ?? "";
 const phoneHref =
@@ -17,7 +18,7 @@ const phoneHref =
 				<div class="ring-border/80 overflow-hidden rounded-2xl ring-2 ring-offset-2 ring-offset-page">
 					<div class="aspect-[3/5] w-full">
 						<img
-							src={siteConfig.headshotSrc}
+							src={publicUrl(siteConfig.headshotSrc)}
 							alt=""
 							width="450"
 							height="750"

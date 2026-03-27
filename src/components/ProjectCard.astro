@@ -1,5 +1,6 @@
 ---
 import type { Project } from "../data/projects";
+import { publicUrl } from "../utils/publicUrl";
 
 type Props = { project: Project };
 
@@ -60,7 +61,7 @@ const repoLinkClass =
 												}
 												<div class="flex min-h-0 flex-1 justify-center rounded-xl border border-border/90 bg-surface p-2 shadow-inner shadow-stone-400/20">
 													<img
-														src={shot.src}
+														src={publicUrl(shot.src)}
 														alt={shot.alt}
 														width="1600"
 														height="1000"
@@ -102,7 +103,7 @@ const repoLinkClass =
 											}
 											<div class="flex min-h-0 flex-1 justify-center rounded-xl border border-border/90 bg-surface p-2 shadow-inner shadow-stone-400/20">
 												<img
-													src={shot.src}
+													src={publicUrl(shot.src)}
 													alt={shot.alt}
 													width="1600"
 													height="1000"
@@ -137,7 +138,7 @@ const repoLinkClass =
 						>
 							<div class="flex justify-center rounded-t-2xl bg-surface-muted p-2 sm:p-3">
 								<img
-									src={project.imageSrc}
+									src={publicUrl(project.imageSrc)}
 									alt={project.imageAlt}
 									width="1206"
 									height="1844"
@@ -151,7 +152,7 @@ const repoLinkClass =
 					) : (
 						<div class="flex justify-center rounded-t-2xl bg-surface-muted p-2 sm:p-3">
 							<img
-								src={project.imageSrc}
+								src={publicUrl(project.imageSrc)}
 								alt={project.imageAlt}
 								width="1206"
 								height="1844"
@@ -180,7 +181,7 @@ const repoLinkClass =
 						>
 							<div class="flex justify-center rounded-t-2xl bg-surface-muted p-2 sm:p-3">
 								<img
-									src={project.imageSrc}
+									src={publicUrl(project.imageSrc)}
 									alt={project.imageAlt}
 									width="2712"
 									height="1894"
@@ -194,7 +195,7 @@ const repoLinkClass =
 					) : (
 						<div class="flex justify-center rounded-t-2xl bg-surface-muted p-2 sm:p-3">
 							<img
-								src={project.imageSrc}
+								src={publicUrl(project.imageSrc)}
 								alt={project.imageAlt}
 								width="2712"
 								height="1894"
@@ -223,7 +224,7 @@ const repoLinkClass =
 						>
 							<div class="aspect-video w-full overflow-hidden rounded-t-2xl bg-surface-muted">
 								<img
-									src={project.imageSrc}
+									src={publicUrl(project.imageSrc)}
 									alt={project.imageAlt}
 									width="1200"
 									height="675"
@@ -237,7 +238,7 @@ const repoLinkClass =
 					) : (
 						<div class="aspect-video w-full overflow-hidden rounded-t-2xl bg-surface-muted">
 							<img
-								src={project.imageSrc}
+								src={publicUrl(project.imageSrc)}
 								alt={project.imageAlt}
 								width="1200"
 								height="675"
