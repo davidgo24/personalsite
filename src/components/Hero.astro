@@ -1,0 +1,104 @@
+---
+import { siteConfig } from "../site.config";
+---
+
+<section
+	class="relative overflow-hidden border-b border-border/80"
+	aria-labelledby="hero-heading"
+>
+	<div
+		class="pointer-events-none absolute inset-0 select-none"
+		aria-hidden="true"
+	>
+		<div
+			class="absolute right-0 top-[11rem] z-0 max-w-[min(100%,20rem)] pl-8 text-right sm:top-[12rem] sm:max-w-[min(100%,24rem)] md:top-[13rem] md:max-w-md lg:right-2 lg:top-[15rem] lg:max-w-lg"
+		>
+			<p
+				class="font-semibold text-[clamp(1.65rem,4.2vw,3.25rem)] leading-[1.05] tracking-tight text-accent/14"
+			>
+				{siteConfig.mambaQuote}
+			</p>
+			<p class="mt-2 font-medium text-[clamp(0.8rem,1.5vw,1rem)] text-accent/28">
+				— {siteConfig.quoteAttribution}
+			</p>
+		</div>
+	</div>
+
+	<div
+		class="pointer-events-none absolute -right-16 top-1/3 h-72 w-72 rounded-full bg-accent/[0.06] blur-3xl md:h-96 md:w-96"
+		aria-hidden="true"
+	></div>
+
+	<div class="relative z-10 mx-auto max-w-6xl px-4 pb-16 pt-10 md:pt-14">
+		<a
+			href="#about"
+			class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-accent focus:px-3 focus:py-2 focus:text-white"
+		>
+			Skip to main content
+		</a>
+		<nav
+			class="mb-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-medium text-muted"
+			aria-label="Page sections"
+		>
+			<a href="#about" class="transition hover:text-accent">Principles</a>
+			<a href="#experience" class="transition hover:text-accent">Experience</a>
+			<a href="#projects" class="transition hover:text-accent">Projects</a>
+			<a href="#contact" class="transition hover:text-accent">Contact</a>
+		</nav>
+
+		<div class="grid gap-10 md:grid-cols-[minmax(0,220px)_1fr] md:items-start md:gap-12 lg:grid-cols-[minmax(0,260px)_1fr]">
+			<div class="mx-auto w-full max-w-[220px] md:mx-0 lg:max-w-[260px]">
+				<div
+					class="ring-border/80 overflow-hidden rounded-2xl ring-2 ring-offset-2 ring-offset-page"
+				>
+					<div class="aspect-[3/5] w-full">
+						<img
+							src={siteConfig.headshotSrc}
+							alt={siteConfig.headshotAlt}
+							width="450"
+							height="750"
+							class="h-full w-full object-cover object-[center_22%]"
+							loading="eager"
+							decoding="async"
+						/>
+					</div>
+				</div>
+			</div>
+
+			<div class="min-w-0">
+				<p class="font-semibold text-lg tracking-[0.15em] text-accent">
+					PUBLIC SERVICE · STRATEGY · OPERATIONS · COMMUNICATION · TEAM IMPACT
+				</p>
+				<h1
+					id="hero-heading"
+					class="font-semibold text-5xl tracking-tight text-ink sm:text-6xl lg:text-7xl"
+				>
+					{siteConfig.fullName}
+				</h1>
+				<p class="mt-2 text-xl font-semibold text-muted sm:text-2xl">
+					{siteConfig.headline}
+				</p>
+				<p class="mt-3 text-muted">{siteConfig.location}</p>
+				<p class="mt-6 max-w-2xl text-balance text-lg leading-relaxed text-ink/95">
+					{siteConfig.tagline}
+				</p>
+				<div class="mt-8 flex flex-wrap gap-3">
+					<a
+						href="#projects"
+						class="inline-flex items-center justify-center rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-accent-dim"
+					>
+						Tools I have built for the workplace
+					</a>
+					<a
+						href={siteConfig.githubUrl}
+						class="inline-flex items-center justify-center rounded-lg border border-border bg-surface-muted/60 px-5 py-2.5 text-sm font-semibold text-ink transition hover:border-accent/50 hover:text-accent"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						GitHub profile
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

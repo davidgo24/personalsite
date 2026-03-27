@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+/* Calm light theme: soft neutrals + muted sage accent */
+@theme {
+	--font-display: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+	--font-body: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+
+	--color-page: #f5f4f1;
+	--color-surface: #ffffff;
+	--color-surface-muted: #ebe8e3;
+	--color-ink: #242422;
+	--color-muted: #5f5d59;
+	--color-border: #ddd9d3;
+	--color-accent: #3f6f66;
+	--color-accent-dim: #325a52;
+}
+
+@layer base {
+	html {
+		scroll-behavior: smooth;
+	}
+	body {
+		@apply bg-page text-ink antialiased font-[family-name:var(--font-body)];
+	}
+}
+
+@utility text-balance {
+	text-wrap: balance;
+}

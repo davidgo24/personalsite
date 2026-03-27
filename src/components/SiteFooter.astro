@@ -1,0 +1,18 @@
+---
+import { siteConfig } from "../site.config";
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-border/80 bg-surface-muted/50">
+	<div class="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-8 text-sm text-muted md:flex-row md:items-center md:justify-between">
+		<p>© {year} {siteConfig.fullName}. All rights reserved.</p>
+		<a
+			href={siteConfig.githubUrl}
+			class="font-medium text-accent hover:underline"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			GitHub
+		</a>
+	</div>
+</footer>

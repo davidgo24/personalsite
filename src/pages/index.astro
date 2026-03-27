@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Principles from "../components/Principles.astro";
+import Experience from "../components/Experience.astro";
+import ProjectsCodeTeaser from "../components/ProjectsCodeTeaser.astro";
+import Projects from "../components/Projects.astro";
+import Contact from "../components/Contact.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import { siteConfig } from "../site.config";
+
+const title = `${siteConfig.fullName} — ${siteConfig.headline}`;
+const description = siteConfig.tagline;
+---
+
+<Layout {title} {description}>
+	<main>
+		<Hero />
+		<Principles />
+		<Experience />
+		<ProjectsCodeTeaser />
+		<Projects />
+		<Contact />
+	</main>
+	<SiteFooter />
+</Layout>

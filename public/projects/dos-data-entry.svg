@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#ebe8e3"/>
+  <rect x="32" y="32" width="896" height="476" rx="8" fill="#ffffff" stroke="#3f6f66" stroke-opacity="0.2" stroke-width="1.5"/>
+  <text x="480" y="278" text-anchor="middle" font-family="Source Sans 3,system-ui,sans-serif" font-size="22" fill="#5f5d59">Screenshot placeholder — DOS Entry</text>
+</svg>

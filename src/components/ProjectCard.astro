@@ -1,0 +1,331 @@
+---
+import type { Project } from "../data/projects";
+
+type Props = { project: Project };
+
+const { project } = Astro.props;
+const presentation = project.imagePresentation ?? "landscape";
+const isPortrait = presentation === "portrait";
+const isLandscapeFit = presentation === "landscape-fit";
+const hasGallery = Boolean(project.imageGallery?.length);
+const repoUrl = project.repoUrl;
+
+const repoLinkClass =
+	"block rounded-2xl outline-none ring-offset-2 ring-offset-page transition hover:opacity-95 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2";
+---
+
+<article
+	class="overflow-hidden rounded-2xl border border-border bg-surface-muted/40 shadow-lg shadow-stone-300/35"
+>
+	{
+		hasGallery && (
+			<div class="rounded-t-2xl bg-surface-muted p-3 sm:p-4">
+				{
+					project.imageGalleryIntro && (
+						<p class="mb-4 text-balance text-center text-sm font-medium leading-snug text-ink md:text-base">
+							{project.imageGalleryIntro}
+						</p>
+					)
+				}
+				{
+					repoUrl ? (
+						<a
+							href={repoUrl}
+							target="_blank"
+							rel="noopener noreferrer"
+							class={repoLinkClass}
+							aria-label={`View ${project.title} on GitHub — screenshot preview (opens in new tab)`}
+						>
+							<div class="flex flex-col gap-6 md:flex-row md:items-stretch md:gap-3">
+								{
+									project.imageGallery!.map((shot, i) => (
+										<>
+											{i > 0 && (
+												<div
+													class="flex shrink-0 items-center justify-center md:w-10"
+													aria-hidden="true"
+												>
+													<span class="rounded-full border border-border bg-page/90 px-3 py-1 text-lg font-semibold text-accent md:px-2 md:py-6 md:[writing-mode:vertical-rl]">
+														→
+													</span>
+												</div>
+											)}
+											<figure class="flex min-w-0 flex-1 flex-col">
+												{
+													shot.label && (
+														<figcaption class="mb-2 text-center text-xs font-semibold uppercase tracking-wide text-ink md:text-left">
+															{shot.label}
+														</figcaption>
+													)
+												}
+												<div class="flex min-h-0 flex-1 justify-center rounded-xl border border-border/90 bg-surface p-2 shadow-inner shadow-stone-400/20">
+													<img
+														src={shot.src}
+														alt={shot.alt}
+														width="1600"
+														height="1000"
+														class="h-auto w-full max-h-[min(580px,82vh)] object-contain object-top"
+														loading={i === 0 ? "eager" : "lazy"}
+														fetchpriority={i === 0 ? "high" : undefined}
+														decoding="async"
+														sizes="(max-width: 768px) 100vw, min(560px, 45vw)"
+													/>
+												</div>
+											</figure>
+										</>
+									))
+								}
+							</div>
+						</a>
+					) : (
+						<div class="flex flex-col gap-6 md:flex-row md:items-stretch md:gap-3">
+							{
+								project.imageGallery!.map((shot, i) => (
+									<>
+										{i > 0 && (
+											<div
+												class="flex shrink-0 items-center justify-center md:w-10"
+												aria-hidden="true"
+											>
+												<span class="rounded-full border border-border bg-page/90 px-3 py-1 text-lg font-semibold text-accent md:px-2 md:py-6 md:[writing-mode:vertical-rl]">
+													→
+												</span>
+											</div>
+										)}
+										<figure class="flex min-w-0 flex-1 flex-col">
+											{
+												shot.label && (
+													<figcaption class="mb-2 text-center text-xs font-semibold uppercase tracking-wide text-ink md:text-left">
+														{shot.label}
+													</figcaption>
+												)
+											}
+											<div class="flex min-h-0 flex-1 justify-center rounded-xl border border-border/90 bg-surface p-2 shadow-inner shadow-stone-400/20">
+												<img
+													src={shot.src}
+													alt={shot.alt}
+													width="1600"
+													height="1000"
+													class="h-auto w-full max-h-[min(580px,82vh)] object-contain object-top"
+													loading={i === 0 ? "eager" : "lazy"}
+													fetchpriority={i === 0 ? "high" : undefined}
+													decoding="async"
+													sizes="(max-width: 768px) 100vw, min(560px, 45vw)"
+												/>
+											</div>
+										</figure>
+									</>
+								))
+							}
+						</div>
+					)
+				}
+			</div>
+		)
+	}
+	{
+		!hasGallery && isPortrait && (
+			<>
+				{
+					repoUrl ? (
+						<a
+							href={repoUrl}
+							target="_blank"
+							rel="noopener noreferrer"
+							class={repoLinkClass}
+							aria-label={`View ${project.title} on GitHub — image preview (opens in new tab)`}
+						>
+							<div class="flex justify-center rounded-t-2xl bg-surface-muted p-2 sm:p-3">
+								<img
+									src={project.imageSrc}
+									alt={project.imageAlt}
+									width="1206"
+									height="1844"
+									class="max-h-[min(85vh,760px)] w-full max-w-[min(100%,520px)] object-contain object-top"
+									loading="lazy"
+									decoding="async"
+									sizes="(max-width: 768px) 100vw, 520px"
+								/>
+							</div>
+						</a>
+					) : (
+						<div class="flex justify-center rounded-t-2xl bg-surface-muted p-2 sm:p-3">
+							<img
+								src={project.imageSrc}
+								alt={project.imageAlt}
+								width="1206"
+								height="1844"
+								class="max-h-[min(85vh,760px)] w-full max-w-[min(100%,520px)] object-contain object-top"
+								loading="lazy"
+								decoding="async"
+								sizes="(max-width: 768px) 100vw, 520px"
+							/>
+						</div>
+					)
+				}
+			</>
+		)
+	}
+	{
+		!hasGallery && isLandscapeFit && (
+			<>
+				{
+					repoUrl ? (
+						<a
+							href={repoUrl}
+							target="_blank"
+							rel="noopener noreferrer"
+							class={repoLinkClass}
+							aria-label={`View ${project.title} on GitHub — image preview (opens in new tab)`}
+						>
+							<div class="flex justify-center rounded-t-2xl bg-surface-muted p-2 sm:p-3">
+								<img
+									src={project.imageSrc}
+									alt={project.imageAlt}
+									width="2712"
+									height="1894"
+									class="h-auto w-full max-h-[min(580px,80vh)] object-contain object-top"
+									loading="lazy"
+									decoding="async"
+									sizes="(max-width: 768px) 100vw, 960px"
+								/>
+							</div>
+						</a>
+					) : (
+						<div class="flex justify-center rounded-t-2xl bg-surface-muted p-2 sm:p-3">
+							<img
+								src={project.imageSrc}
+								alt={project.imageAlt}
+								width="2712"
+								height="1894"
+								class="h-auto w-full max-h-[min(580px,80vh)] object-contain object-top"
+								loading="lazy"
+								decoding="async"
+								sizes="(max-width: 768px) 100vw, 960px"
+							/>
+						</div>
+					)
+				}
+			</>
+		)
+	}
+	{
+		!hasGallery && !isPortrait && !isLandscapeFit && (
+			<>
+				{
+					repoUrl ? (
+						<a
+							href={repoUrl}
+							target="_blank"
+							rel="noopener noreferrer"
+							class={repoLinkClass}
+							aria-label={`View ${project.title} on GitHub — image preview (opens in new tab)`}
+						>
+							<div class="aspect-video w-full overflow-hidden rounded-t-2xl bg-surface-muted">
+								<img
+									src={project.imageSrc}
+									alt={project.imageAlt}
+									width="1200"
+									height="675"
+									class="h-full w-full object-cover object-center"
+									loading="lazy"
+									decoding="async"
+									sizes="(max-width: 768px) 100vw, 960px"
+								/>
+							</div>
+						</a>
+					) : (
+						<div class="aspect-video w-full overflow-hidden rounded-t-2xl bg-surface-muted">
+							<img
+								src={project.imageSrc}
+								alt={project.imageAlt}
+								width="1200"
+								height="675"
+								class="h-full w-full object-cover object-center"
+								loading="lazy"
+								decoding="async"
+								sizes="(max-width: 768px) 100vw, 960px"
+							/>
+						</div>
+					)
+				}
+			</>
+		)
+	}
+	<div class="p-5 md:p-6">
+		<h3 class="font-semibold text-3xl tracking-tight text-ink">
+			{project.title}
+		</h3>
+		<p class="mt-1 text-muted">{project.tagline}</p>
+
+		<div class="mt-4 space-y-3 text-sm leading-relaxed text-ink/90">
+			<p>
+				<span class="font-semibold text-accent">Problem:</span> {project.problem}
+			</p>
+			<p>
+				<span class="font-semibold text-accent">What I built:</span>{" "}
+				{project.solution}
+			</p>
+			<p>
+				<span class="font-semibold text-accent">Department / teammates / impact:</span>{" "}
+				{project.stakeholderImpact}
+			</p>
+			<p>
+				<span class="font-semibold text-accent">Outcome:</span> {project.outcome}
+			</p>
+		</div>
+
+		<div class="mt-4 flex flex-wrap gap-2">
+			{
+				project.tech.map((t) => (
+					<span class="rounded-full border border-border bg-page/80 px-2.5 py-0.5 text-xs font-medium text-muted">
+						{t}
+					</span>
+				))
+			}
+		</div>
+
+		<div class="mt-5 flex flex-wrap items-center gap-3">
+			{
+				project.repoUrl && (
+					<a
+						href={project.repoUrl}
+						class="inline-flex items-center rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white transition hover:bg-accent-dim"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						View on GitHub
+					</a>
+				)
+			}
+			{
+				!project.repoUrl && (
+					<p class="text-sm text-muted">Internal build—no public GitHub repository.</p>
+				)
+			}
+			{
+				project.demoUrl && (
+					<a
+						href={project.demoUrl}
+						class="inline-flex items-center rounded-lg border border-border px-4 py-2 text-sm font-semibold text-ink transition hover:border-accent/50"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						Live demo
+					</a>
+				)
+			}
+		</div>
+
+		{
+			project.details && (
+				<details class="mt-5 rounded-lg border border-border bg-page/50 p-3">
+					<summary class="cursor-pointer text-sm font-semibold text-accent">
+						More detail
+					</summary>
+					<p class="mt-2 text-sm leading-relaxed text-ink/85">{project.details}</p>
+				</details>
+			)
+		}
+	</div>
+</article>

@@ -1,0 +1,21 @@
+---
+import { projects } from "../data/projects";
+import ProjectCard from "./ProjectCard.astro";
+---
+
+<section id="projects" class="relative border-b border-border/80" aria-labelledby="projects-heading">
+	<div class="mx-auto max-w-6xl px-4 py-16 md:py-20">
+		<h2
+			id="projects-heading"
+			class="font-semibold text-4xl tracking-tight text-ink md:text-5xl"
+		>
+			Workplace tools & projects
+		</h2>
+		<p class="mt-3 max-w-2xl text-lg text-muted">
+			Each project includes the problem, what was built, and the outcome. Where code is public on GitHub, use the preview image or the “View on GitHub” button; internal builds are described on the page only.
+		</p>
+		<div class="mt-10 grid gap-10">
+			{projects.map((p) => <ProjectCard project={p} />)}
+		</div>
+	</div>
+</section>

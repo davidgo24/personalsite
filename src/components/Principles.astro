@@ -1,0 +1,46 @@
+---
+const principles = [
+	{
+		title: "Accuracy & Accountability",
+		body: "I maintain accurate, well-documented records because others depend on the integrity of the work we produce. I take deadlines seriously, double-check details, and ensure that pay-period artifacts, notes, and internal tools are clearly recorded so the team isn’t forced to reconstruct context later.",
+	},
+	{
+		title: "Proactive Communication",
+		body: "I raise questions early, flag blockers quickly, and keep updates clear and actionable. My goal is to keep work moving and ensure that anyone stepping into a task has the context they need without searching through emails or scattered notes.",
+	},
+	{
+		title: "Supporting the Team",
+		body: "I focus on making the team more effective—whether by training others, documenting workflows, or automating repetitive tasks. I value helping teammates spend their time on higher-impact work while I take ownership of the details and follow-through.",
+	},
+	{
+		title: "Innovation & Strategic Thinking",
+		body: "I look for opportunities to improve processes and strengthen outcomes through thoughtful use of communication, process design, and technology. I approach work with a strategic mindset—balancing immediate needs with long-term impact—and aim to implement solutions that create lasting value for both the team and the people we serve.",
+	},
+];
+---
+
+<section
+	id="about"
+	class="relative border-b border-border/80 bg-surface-muted/40"
+	aria-labelledby="about-heading"
+>
+	<div class="mx-auto max-w-6xl px-4 py-16 md:py-20">
+		<h2
+			id="about-heading"
+			class="font-semibold text-4xl tracking-tight text-ink md:text-5xl"
+		>
+			Personal Work Principles
+		</h2>
+
+		<ul class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+			{
+				principles.map((p) => (
+					<li class="rounded-xl border border-border bg-surface p-5 shadow-sm shadow-stone-300/25">
+						<h3 class="font-semibold text-accent">{p.title}</h3>
+						<p class="mt-2 text-sm leading-relaxed text-ink/90">{p.body}</p>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>
